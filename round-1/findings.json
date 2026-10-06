@@ -1,17 +1,105 @@
 {
   "round": "round-1",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-009",
+  "queries_used": 74,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
+      "feature": "history_score",
+      "direction": "decreases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.9,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [11, 12, 13, 14, 15, 54, 55, 57, 58, 59],
+        "summary": "Lowering history_score from 900 to 350 raised the score from 0.859 to 0.991. Below that the score falls again (300: 0.9886), so the optimum is near 350."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "x8",
+      "direction": "peaks",
+      "strength": "strong",
+      "confidence": 0.85,
+      "evidence": {
+        "query_ids": [3, 7, 8, 42, 43, 46, 47, 48, 53],
+        "summary": "Score peaks near x8=37 (0.9842) and falls on both sides (45: 0.9779, 50: 0.9691). At history_score=900, x8 of 60/50/40 gave 0.807/0.837/0.854."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "tenure_years",
+      "direction": "peaks",
+      "strength": "moderate",
+      "confidence": 0.8,
+      "evidence": {
+        "query_ids": [23, 31, 32, 64, 65, 66, 67],
+        "summary": "Moving tenure_years from 40 to 35 raised the score from 0.9714 to 0.9822. 30 is lower (0.9808), and 33-36 are all around 0.991 at the tuned settings."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "x6",
+      "direction": "peaks",
+      "strength": "weak",
+      "confidence": 0.75,
+      "evidence": {
+        "query_ids": [18, 19, 20, 21, 22, 71, 74],
+        "summary": "Score rises from x6=15 (0.9663) to 18 (0.9714) and falls at 20 (0.9675). 18 and 19 tie at 0.9922."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "badge_age_days",
+      "direction": "peaks",
+      "strength": "weak",
+      "confidence": 0.65,
+      "evidence": {
+        "query_ids": [8, 9, 10, 11, 68, 69, 70],
+        "summary": "Rising badge_age_days from 18 to 25 raised the score slightly (0.8537 to 0.8587). Near the optimum, 24 beat 25 and 26 (0.9922 vs 0.9913 vs 0.9903)."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "x7",
+      "direction": "decreases",
+      "strength": "weak",
+      "confidence": 0.8,
+      "evidence": {
+        "query_ids": [15, 16, 17],
+        "summary": "Raising x7 from 0 to 1 to 2 lowered the score (0.9675, 0.9662, 0.9597). 0 is best."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "anomaly_ratio",
+      "direction": "none",
+      "strength": "none",
+      "confidence": 0.85,
+      "evidence": {
+        "query_ids": [31, 33, 34, 35, 36, 37],
+        "summary": "anomaly_ratio at 0, 0.01, 0.02, 0.03, 0.05 and 0.1 all gave exactly 0.9822. Values near 1 were never tested in isolation."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "clearance_level",
+      "direction": "none",
+      "strength": "none",
+      "confidence": 0.85,
+      "evidence": {
+        "query_ids": [23, 29, 30],
+        "summary": "clearance_level at 80, 95 and 100 all gave exactly 0.9714."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "escorts",
+      "direction": "none",
+      "strength": "none",
+      "confidence": 0.9,
+      "evidence": {
+        "query_ids": [23, 24, 25, 26, 27, 28],
+        "summary": "escorts at 1, 2, 3, 4, 5 and 6 all gave exactly 0.9714."
       }
     }
   ]
