@@ -1,7 +1,7 @@
 # round-4 — Reconstruct
 
 **Team:** BB-009  
-**Queries used:** 111 observations from Round 1 and Round 2
+**Queries used:** 111 observations from Round 1 and Round 2 and Round 4
 
 ## What we concluded
 
