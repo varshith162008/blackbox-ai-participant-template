@@ -1,17 +1,105 @@
 {
   "round": "round-4",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-009",
+  "queries_used": 111,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
-      "direction": "increases",
+      "feature": "recent_denials",
+      "direction": "decreases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.90,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": ["R1·16", "R1·17", "R2·11", "R2·25", "R2·30"],
+        "summary": "Higher recent denial counts were generally associated with lower confidence scores."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "linked_badges",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": ["R2·7", "R2·20", "R2·25", "R2·26", "R2·35"],
+        "summary": "Reducing linked badges from the baseline was associated with a noticeable reduction in confidence."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "badge_age_days",
+      "direction": "nonlinear",
+      "strength": "moderate",
+      "confidence": 0.80,
+      "evidence": {
+        "query_ids": ["R1·9", "R1·10", "R1·11", "R2·6", "R2·21"],
+        "summary": "Badge age affected confidence, but the observed relationship was not strictly monotonic."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "tenure_years",
+      "direction": "nonlinear",
+      "strength": "moderate",
+      "confidence": 0.80,
+      "evidence": {
+        "query_ids": ["R1·31", "R1·32", "R2·4", "R2·5", "R2·22"],
+        "summary": "Changes in tenure produced different confidence responses, with the strongest observed performance around the baseline tenure."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "requested_zone",
+      "direction": "nonlinear",
+      "strength": "moderate",
+      "confidence": 0.80,
+      "evidence": {
+        "query_ids": ["R1·43", "R1·44", "R1·45", "R1·46", "R1·47", "R1·48", "R2·18", "R2·19"],
+        "summary": "Requested zone influenced confidence, with small changes producing different score responses."
+      }
+    },
+    {
+      "type": "interaction",
+      "feature": "site × linked_badges",
+      "direction": "conditional",
+      "strength": "strong",
+      "confidence": 0.85,
+      "evidence": {
+        "query_ids": ["R2·7", "R2·14", "R2·20", "R2·29"],
+        "summary": "The effect of changing site depended on the linked badge level, indicating an interaction between these features."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "clearance_level",
+      "direction": "weak_or_no_observed_effect",
+      "strength": "weak",
+      "confidence": 0.70,
+      "evidence": {
+        "query_ids": ["R2·12", "R2·15", "R1·29", "R1·30"],
+        "summary": "Changing clearance level produced little or no observed change in several controlled experiments."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "escorts",
+      "direction": "weak_or_no_observed_effect",
+      "strength": "weak",
+      "confidence": 0.70,
+      "evidence": {
+        "query_ids": ["R2·13", "R1·23", "R1·24", "R1·25", "R1·26", "R1·27", "R1·28"],
+        "summary": "Changing the number of escorts produced little observed effect on confidence in the tested configurations."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "anomaly_ratio",
+      "direction": "weak_or_no_observed_effect",
+      "strength": "weak",
+      "confidence": 0.70,
+      "evidence": {
+        "query_ids": ["R1·33", "R1·34", "R1·35", "R1·36", "R1·37", "R2·9", "R2·10"],
+        "summary": "Several changes in anomaly ratio produced little change in confidence under the tested conditions."
       }
     }
   ]
