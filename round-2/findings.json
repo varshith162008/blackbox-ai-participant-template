@@ -1,17 +1,182 @@
 {
   "round": "round-2",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-009",
+  "queries_used": 35,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
+      "feature": "history_score",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.95,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [1, 5, 26],
+        "summary": "Lowering history_score from 350 to 300 decreased the confidence score from 0.9922 to 0.9895; therefore increasing history_score increases confidence."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "linked_badges",
+      "direction": "increases",
+      "strength": "strong",
+      "confidence": 0.98,
+      "evidence": {
+        "query_ids": [20, 26],
+        "summary": "Reducing linked_badges from 19 to 10 caused a large confidence decrease, reaching 0.9731; linked_badges has a strong positive effect."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "recent_denials",
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.95,
+      "evidence": {
+        "query_ids": [11, 25],
+        "summary": "Increasing recent_denials from 0 to 2 decreased the score from 0.9922 to 0.9876."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "requested_zone",
+      "direction": "decreases",
+      "strength": "medium",
+      "confidence": 0.88,
+      "evidence": {
+        "query_ids": [3, 18, 19],
+        "summary": "Increasing requested_zone from 37 to 40 decreased the score, while reducing it to 35 gave a slight increase."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "site",
+      "direction": "decreases",
+      "strength": "medium",
+      "confidence": 0.92,
+      "evidence": {
+        "query_ids": [14, 16, 17],
+        "summary": "Changing site from A to B, C, and D decreased the confidence score."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "clearance_level",
+      "direction": "no_effect",
+      "strength": "strong",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [12, 15],
+        "summary": "Changing clearance_level from 100 to 50 and then 0 produced the same score of 0.9922."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "escorts",
+      "direction": "no_effect",
+      "strength": "strong",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [13],
+        "summary": "Changing escorts from 6 to 0 produced no score change."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "anomaly_ratio",
+      "direction": "no_effect",
+      "strength": "strong",
+      "confidence": 0.99,
+      "evidence": {
+        "query_ids": [9, 10],
+        "summary": "Changing anomaly_ratio from 0 to 0.5 produced no score change when tested independently."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["history_score", "requested_zone"],
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.91,
+      "evidence": {
+        "query_ids": [1, 2, 3, 23],
+        "summary": "The effect of history_score changes with requested_zone, showing a combined relationship between the two features."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["tenure_years", "badge_age_days"],
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.91,
+      "evidence": {
+        "query_ids": [4, 5, 6, 24],
+        "summary": "Changing tenure_years and badge_age_days together produced a different result from their individual changes, indicating interaction."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["linked_badges", "recent_denials"],
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.96,
+      "evidence": {
+        "query_ids": [20, 25],
+        "summary": "With linked_badges at 10, increasing recent_denials from 0 to 2 reduced the score from 0.9731 to 0.9631."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["history_score", "linked_badges"],
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.92,
+      "evidence": {
+        "query_ids": [7, 8, 26],
+        "summary": "Combining lower history_score and lower linked_badges produced a substantial confidence decrease."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["site", "linked_badges"],
+      "direction": "mixed",
+      "strength": "strong",
+      "confidence": 0.93,
+      "evidence": {
+        "query_ids": [14, 20, 29],
+        "summary": "The effect of changing site depends on linked_badges, demonstrating an interaction."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["site", "tenure_years"],
+      "direction": "mixed",
+      "strength": "strong",
+      "confidence": 0.93,
+      "evidence": {
+        "query_ids": [14, 5, 33],
+        "summary": "The effect of site changes when tenure_years changes, indicating an interaction."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["linked_badges", "tenure_years"],
+      "direction": "decreases",
+      "strength": "strong",
+      "confidence": 0.94,
+      "evidence": {
+        "query_ids": [20, 5, 35],
+        "summary": "Combining low linked_badges with lower tenure_years produced a strong confidence decrease to 0.9718."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["tenure_years", "history_score"],
+      "direction": "decreases",
+      "strength": "medium",
+      "confidence": 0.87,
+      "evidence": {
+        "query_ids": [5, 1, 28],
+        "summary": "Changing tenure_years and history_score together affected the output differently from their isolated changes."
       }
     }
   ]
